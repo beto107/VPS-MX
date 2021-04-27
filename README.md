@@ -12,6 +12,7 @@ UPDATE 19/03/2021
 * Un sistema operativo basado en Linux (Ubuntu o Debian) 
 * Recomendamos Ubuntu 16.04 Server x86_64 / 18.04 Server x86_64
 * Se recomienda usar una distro nueva o formatiada
+* Importante esta version es de Codigo Abierto y Gratuito
 
 ```
 # SCRIPT VPS•MX ® Script Manager de VPS
