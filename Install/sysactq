@@ -21,7 +21,7 @@ SCRIPT_NAME=vpsmxup
 
 ## Title and graphics
 msg -bar2
-echo -e " \e[97m\033[1;41m   =====>>►► 🐲 SCRIPT - VPS•MX ®️ 🐲 ◄◄<<=====     \033[1;37m"
+echo -e " \e[97m\033[1;41m   =====>>►► 🐲 SCRIPT - VPS•MX ®️ 🐲 ◄◄<<=====    $(date) \033[1;37m"
 msg -bar2
 msg -ama "              PREPARANDO ACTUALIZACIONES"
 msg -bar2
@@ -216,6 +216,8 @@ echo 'VPS-MX'>> .bashrc
 
 msg -bar2
 echo -e "\033[93m        -- ACTULIZACION DE UBUNTU COMPLETA -- "
+wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MX/main/Install/VPS-MX.sh -O /usr/bin/VPS-MX &>/dev/null
+chmod +x /usr/bin/VPS-MX
 msg -bar2
 
 reboot_fun () {
@@ -230,11 +232,11 @@ if [ "$REBOOT" = "1" ]; then
 	reboot
 fi
 }
-rm -rf   &> /dev/null
 rm -rf /usr/bin/systembin &> /dev/null
-printTitle "Volviendo a $INITIAL_DIR"
-cd "$INITIAL_DIR"
-pwd
-printTitle "Encaso de no reiniciar auto ejecute: 'sudo reboot'"
+printTitle "Se procede a Instalar VPS-MX"
 echo $(date)
-echo "$FRAME"
+msg -bar2
+sleep 7s
+clear
+VPS-MX
+exit
