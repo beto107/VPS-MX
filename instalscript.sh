@@ -1,5 +1,5 @@
 #!/bin/bash
-
+rm -rf /root/instalscript.sh
 ### COLORES Y BARRA 
 msg () {
 BRAN='\033[1;37m' && VERMELHO='\e[31m' && VERDE='\e[32m' && AMARELO='\e[33m'

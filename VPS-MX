@@ -1,4 +1,5 @@
 #!/bin/bash
+rm -rf /root/VPS-MX
 clear
 clear
 rm $(pwd)/$0 &> /dev/null
