@@ -257,8 +257,8 @@ reboot_fun () {
 	echo -e "\033[92m       ❗️ SU VPS SE REINICIARA EN 5 SEGUNDOS ❗️            "
 	msg -bar2
 	sleep 5s
-	exit
 	reboot
+	exit
 }
 install_fim () {
 msg -ama "               Finalizando Instalacion" && msg bar2
