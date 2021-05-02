@@ -218,7 +218,7 @@ msg -bar2
 echo -e "\033[93m        -- ACTULIZACION DE UBUNTU COMPLETA -- "
 msg -bar2
 
-msg () {
+reboot_fun () {
 if [ "$REBOOT" = "1" ]; then
 	echo -e "\033[92m       ❗️ SU VPS SE REINICIARA EN 5 SEGUNDOS ❗️            "
 	msg -bar2
