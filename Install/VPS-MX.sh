@@ -253,13 +253,10 @@ pv="$(echo es)"
 byinst="true"
 }
 reboot_fun () {
+	msg -bar2
 	echo -e "\033[92m       ❗️ SU VPS SE REINICIARA EN 5 SEGUNDOS ❗️            "
 	msg -bar2
-	while [ $REBOOT_TIMEOUT -gt 0 ]; do
-	   echo -ne "                         -$REBOOT_TIMEOUT-\033[0K\r"
-	   sleep 1
-	   : $((REBOOT_TIMEOUT--))
-	done
+	sleep 5s
 	reboot
 }
 install_fim () {
