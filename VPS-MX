@@ -59,6 +59,17 @@ else
 fi
  
  }
+####------- RECONFIGURAR CONTRASEÑA
+passs(){
+msg -bar
+echo -e "\e[96mDIGITE UNA NUEVA CONTRASEÑA:\033[0;37m"; read -p " " pass
+(echo $pass; echo $pass)|passwd root 2>/dev/null
+sleep 1s
+msg -bar
+echo -e "\033[97m      CONTRASEÑA AGREGADA O EDITADA CORECTAMENTE"
+echo -e "\033[97m SU CONTRASEÑA AHORA ES: \e[41m $pass \033[0;37m"
+}
+
 ####------- REINICIAR UPDATER Y RECONFIGURAR HORARIO
 
 msg -bar2
@@ -100,6 +111,7 @@ fun_bar "apt-get install net-tools -y > /dev/null 2>&1"
 apt-get install net-tools -y &>/dev/null
 apt-get install curl -y > /dev/null 2>&1
 service ssh restart > /dev/null 2>&1
+
 echo -e "\033[97m    ◽️ DESACTIVANDO PASS ALFANUMERICO "
 sed -i 's/.*pam_cracklib.so.*/password sufficient pam_unix.so sha512 shadow nullok try_first_pass #use_authtok/' /etc/pam.d/common-password > /dev/null 2>&1 
 fun_bar "service ssh restart > /dev/null 2>&1 "
@@ -112,12 +124,8 @@ read -p "   [ s | n ]: " updater
 msg -bar2
 echo -e "\033[93m              AGREGAR/EDITAR PASS ROOT\033[97m" 
 msg -bar
-echo -e "\033[1;96m DIGITE NUEVA CONTRASEÑA:\033[0;37m"; read -p " " pass
-(echo $pass; echo $pass)|passwd root 2>/dev/null
-sleep 1s
-msg -bar
-echo -e "\033[97m      CONTRASEÑA AGREGADA O EDITADA CORECTAMENTE"
-echo -e "\033[97m SU CONTRASEÑA AHORA ES: \e[41m $pass \033[0;37m"
+read -p " default (n)  [ s | n ]: " -e -i n passs
+[[ "$passs" = "s" || "$passs" = "S" ]] && passs
 
 ## VERIFICAR KEY AUTENTICA VS IP BOT
 cd

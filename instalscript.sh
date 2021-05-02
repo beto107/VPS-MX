@@ -1,16 +1,5 @@
 #!/bin/bash
-#sudo apt-get update  &>/dev/null
-#sudo apt-get wget -y &>/dev/null
-killall apt apt-get
-dpkg --configure -a
-apt-get install software-properties-common -y
-apt-add-repository universe -y
-rm -rf /etc/localtime &>/dev/null
-ln -s /usr/share/zoneinfo/America/Mexico_City /etc/localtime &>/dev/null
-rm $(pwd)/$0 &> /dev/null
-### CONFIGURAR POR 22 SSH
-#grep -v "^Port 22" /etc/ssh/sshd_config > /tmp/ssh && mv /tmp/ssh /etc/ssh/sshd_config &>/dev/null
-#echo "Port 22" >> /etc/ssh/sshd_config
+
 ### COLORES Y BARRA 
 msg () {
 BRAN='\033[1;37m' && VERMELHO='\e[31m' && VERDE='\e[32m' && AMARELO='\e[33m'
@@ -30,37 +19,15 @@ clear
  msg -ama "     [ VPS - MX - SCRIPT \033[1;97m ❌ MOD By @Kalix1 ❌\033[1;33m ]"
  echo -e  "\033[1;97m               EJECUTANDO ACTULIZADOR  \033[1;34m "
  msg -bar2
-## Script name
-SCRIPT_NAME=vpsmxup
-## Install directory
-WORKING_DIR_ORIGINAL="$(pwd)"
-INSTALL_DIR_PARENT="/usr/local/vpsmxup/"
-INSTALL_DIR=${INSTALL_DIR_PARENT}${SCRIPT_NAME}/
-## /etc/ config directory
-mkdir -p "/etc/vpsmxup/" &> /dev/null
-## Install/update
-if [ ! -d "$INSTALL_DIR" ]; then
-	echo -e  "\033[1;97m           Instalando Paquetes Prioritarios"
+## Install/Interno
+	echo -e  "\033[1;97m              Copiando Instalador Interno "
 	echo "           --------------------------------"
 	sleep 2
-	mkdir -p "$INSTALL_DIR_PARENT"
-	cd "$INSTALL_DIR_PARENT"
-    wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MX/main/VPS-MX_Oficial/zzupdate-master/zzupdate.default-si.conf -O /usr/local/vpsmxup/vpsmxup.default.conf  &> /dev/null
-	chmod +x /usr/local/vpsmxup/vpsmxup.default.conf 
-	rm -rf /usr/local/vpsmxup/vpsmxup.sh
-    wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MX/main/VPS-MX_Oficial/zzupdate-master/zzupdate.default.conf -O /usr/local/vpsmxup/vpsmxup.default.conf &> /dev/null
-	chmod +x /usr/local/vpsmxup/vpsmxup.default.conf
 	rm -rf /root/VPS-MX
     wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MX/main/VPS-MX -O /root/VPS-MX &> /dev/null
 	chmod +x /root/VPS-MX
-	echo -e  "\033[1;97m              Copiando Instalador Interno "
-	
-	echo "           --------------------------------"	
 	msg -bar2
 	sleep 2
-else
-	echo ""
-fi
 
 ubu16_fun () {
     wget -O /etc/apt/sources.list https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MX/main/VPS-MX_Oficial/Repositorios/16.04/sources.list &> /dev/null
@@ -111,6 +78,5 @@ msg -bar
 	
 sleep 5
 ## Restore working directory
-cd $WORKING_DIR_ORIGINAL
 clear
 cd && ./VPS-MX
