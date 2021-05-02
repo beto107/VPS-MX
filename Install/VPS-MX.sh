@@ -245,13 +245,24 @@ funcao_idioma () {
 clear
 clear
 msg -bar2
-msg -bar2
 figlet "    -VPS MX-" | lolcat 
 echo -e "     ESTE SCRIPT ESTA OPTIMIZADO A IDIOMA ESPAÑOL"
 msg -bar2
 pv="$(echo es)"
 [[ ${#id} -gt 2 ]] && id="es" || id="$pv"
 byinst="true"
+}
+reboot_fun () {
+if [ "$REBOOT" = "1" ]; then
+	echo -e "\033[92m       ❗️ SU VPS SE REINICIARA EN 5 SEGUNDOS ❗️            "
+	msg -bar2
+	while [ $REBOOT_TIMEOUT -gt 0 ]; do
+	   echo -ne "                         -$REBOOT_TIMEOUT-\033[0K\r"
+	   sleep 1
+	   : $((REBOOT_TIMEOUT--))
+	done
+	reboot
+fi
 }
 install_fim () {
 msg -ama "               Finalizando Instalacion" && msg bar2
@@ -292,7 +303,7 @@ echo -e "         COMANDO PRINCIPAL PARA ENTRAR AL PANEL "
 echo -e "  \033[1;41m               sudo VPS-MX o vps-mx             \033[0;37m" && msg -bar2
 
 read -p " REBOOT SISTEMA  [ s | n ]: " -e -i s rebt
-[[ "$rebt" = "s" || "$rebt" = "S" ]] && reboot
+[[ "$rebt" = "s" || "$rebt" = "S" ]] && reboot_fun
 
 sleep 5
 exit
