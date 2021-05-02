@@ -301,7 +301,7 @@ echo 'echo ""'>> .bashrc
 echo -e "         COMANDO PRINCIPAL PARA ENTRAR AL PANEL "
 echo -e "  \033[1;41m               sudo VPS-MX o vps-mx             \033[0;37m" && msg -bar2
 
-read -p "         REBOOT SISTEMA  [ s | n ]: " -e -i s rebt
+read -p "  REBOOT SISTEMA  [ s | n ]: " -e -i s rebt
 [[ "$rebt" = "s" || "$rebt" = "S" ]] && reboot_fun
 
 sleep 5
