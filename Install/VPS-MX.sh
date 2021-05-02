@@ -290,7 +290,13 @@ echo 'wget -O /etc/versin_script_new https://raw.githubusercontent.com/AAAAAEXQO
 echo 'echo ""'>> .bashrc
 echo -e "         COMANDO PRINCIPAL PARA ENTRAR AL PANEL "
 echo -e "  \033[1;41m               sudo VPS-MX o vps-mx             \033[0;37m" && msg -bar2
-sleep 5
+sleep 1s
+msg -bar2
+echo -e "\033[1;33m   PARA TERMINAR REINICIE SU SISTEMA "
+echo -e "\033[1;33m   PARA APLICAR TODAS LAS CONFIGURACIONES "
+msg -bar2
+read -p " default (s)  [ s | n ]: " -e -i s rebt
+[[ "$rebt" = "s" || "$rebt" = "S" ]] && reboot
 exit
 }
 ofus () {
