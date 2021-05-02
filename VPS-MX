@@ -68,6 +68,7 @@ sleep 1s
 msg -bar
 echo -e "\033[97m      CONTRASEÑA AGREGADA O EDITADA CORECTAMENTE"
 echo -e "\033[97m SU CONTRASEÑA AHORA ES: \e[41m $pass \033[0;37m"
+sleep 3s
 }
 
 ####------- REINICIAR UPDATER Y RECONFIGURAR HORARIO
