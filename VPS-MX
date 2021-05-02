@@ -134,7 +134,7 @@ cd
 wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MX/main/Install/sysactq -O /usr/bin/sysactq &> /dev/null
 chmod +x /usr/bin/sysactq
 msg -bar2
-msg -bar2
+## msg -bar2
 read -t 20 -n 1 -rsp $'\033[1;39m           Preciona Enter Para continuar\n'
 ## Restore working directory
 cd $WORKING_DIR_ORIGINAL
