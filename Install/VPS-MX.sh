@@ -203,7 +203,8 @@ echo -e "\033[1;31m 2- Escoja:(S) Si. Saltaron errores."
 msg -bar2
 echo -e "\033[1;39m Al preciona enter continuara la instalacion Normal"
 msg -bar2
-read -p " [ S | N ]: " idfix64_86   
+## read -p " [ S | N ]: " idfix64_86 
+read -p " default (n)  [ s | n ]: " -e -i n idfix64_86  
 [[ "$idfix64_86" = "s" || "$idfix64_86" = "S" ]] && idfix64_86
 clear
 fun_ip () {
@@ -434,7 +435,8 @@ if [[ -e $HOME/lista-arq ]] && [[ ! $(cat $HOME/lista-arq|grep "Code de KEY Inva
    echo -e "${cor[2]}         DESEAS INSTALAR NOTI-BOT?(Default n)"
    echo -e "\033[1;34m  (Deves tener Telegram y el BOT: @Noti_VPSMX_Bot)"
    msg -bar2
-   read -p " [ s | n ]: " NOTIFY   
+   ## read -p " [ s | n ]: " NOTIFY 
+   read -p " default (n)  [ s | n ]: " -e -i n NOTIFY
    [[ "$NOTIFY" = "s" || "$NOTIFY" = "S" ]] && NOTIFY
    msg -bar2
 [[ ${byinst} = "true" ]] && install_fim
