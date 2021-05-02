@@ -76,7 +76,7 @@ msg -bar
     ;;
     esac
 	
-sleep 5
+sleep 1
 ## Restore working directory
 clear
 cd && ./VPS-MX
