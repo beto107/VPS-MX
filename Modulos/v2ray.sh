@@ -28,7 +28,7 @@ err_fun () {
 }
 intallv2ray () {
 apt install python3-pip -y 
-source <(curl -sL https://raw.githubusercontent.com/lacasitamx/VPSMX/master/ArchivosUtilitarios/V2RAY/install.sh)
+source <(curl -sL https://www.dropbox.com/s/ukkyksfdo3lqqmc/install-v2ray.sh)
 msg -ama "$(fun_trans "Intalado con Exito")!"
 USRdatabase="/etc/VPS-MX/RegV2ray"
 [[ ! -e ${USRdatabase} ]] && touch ${USRdatabase}
@@ -73,7 +73,7 @@ msg -ne "Enter Para Continuar" && read enter
 ${SCPinst}/v2ray.sh
 }
 unistallv2 () {
-source <(curl -sL https://raw.githubusercontent.com/lacasitamx/VPSMX/master/ArchivosUtilitarios/V2RAY/install.sh) --remove > /dev/null 2>&1
+source <(curl -sL https://www.dropbox.com/s/ukkyksfdo3lqqmc/install-v2ray.sh) --remove > /dev/null 2>&1
 rm -rf /etc/VPS-MX/RegV2ray > /dev/null 2>&1
 echo -e "\033[1;92m                  V2RAY REMOVIDO OK "
 msg -bar
@@ -136,6 +136,8 @@ valid=$(date '+%C%y-%m-%d' -d " +$diasuser days") && datexp=$(date "+%F" -d " + 
 echo -e "\e[91m >> Expira el : \e[92m$datexp "
 ##Registro
 echo "  $UUID | $nick | $valid " >> /etc/VPS-MX/RegV2ray
+Fecha=`date +%d-%m-%y-%R`
+cp /etc/VPS-MX/RegV2ray /etc/VPS-MX/v2ray/RegV2ray-"$Fecha"
 v2ray restart > /dev/null 2>&1
 echo ""
 v2ray info > /etc/VPS-MX/v2ray/confuuid.log
