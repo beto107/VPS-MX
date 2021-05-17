@@ -19,7 +19,7 @@ UPDATE 02/04/2021
 sudo apt update -y; apt upgrade -y; wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MX/main/instalscript.sh; chmod 777 instalscript.sh* && ./instalscript.sh*
 
 ```
-VPS-MX Versao 8.4 (las dependencias faltantes se instalarán automáticamente)
+VPS-MX (las dependencias faltantes se instalarán automáticamente)
 ```
 -------------------------------------------------------------------------------
 
@@ -34,9 +34,7 @@ https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MX/main/Version
 1. @Kalix1 - Developer of VPS-MX (https://github.com/VPS-MX)
 2. @Rufu99 - Contributor (https://github.com/rudi9999)
 3. Team Casita-MX - Contributor (https://github.com/lacasitamx)
-4. Team Illuminati - Contributor (https://github.com/AAAAAEXQOSyIpN2JZ0ehUQ)
-
--------------------------------------------------------------------------------
+4. Team Illuminati - Contributor (https://github.com/AAAAAEXQOSyIpN2JZ0ehUQ) 
 
 ```
 * SIN MINERIA! 
